@@ -1,0 +1,29 @@
+{
+  "name": "ointment-booking-system",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "20.x"
+  },
+  "description": "Professional Online Ointment Booking System for Doctors, Tutors, and Consultants",
+  "type": "module",
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "start": "npm run start -w backend",
+    "server": "npm run dev -w backend",
+    "client": "npm run dev -w frontend",
+    "predev:full": "kill -9 $(lsof -ti:5000) 2>/dev/null || true",
+    "dev:full": "concurrently \"PORT=5000 npm run server\" \"npm run client\"",
+    "sync:vanilla": "node scripts/sync-vanilla.mjs",
+    "build": "npm run sync:vanilla && npm run build -w frontend",
+    "build:server": "npm run build -w backend",
+    "dev": "npm run dev -w frontend",
+    "seed": "npm run seed -w backend"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

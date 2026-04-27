@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply font-sans text-slate-100 bg-[#0f1115];
+    background-image:
+      radial-gradient(circle at 8% 12%, rgba(249, 115, 22, 0.18), transparent 34%),
+      radial-gradient(circle at 88% 8%, rgba(234, 88, 12, 0.12), transparent 30%),
+      linear-gradient(to bottom, #13161b 0%, #0d0f13 100%);
+    background-attachment: fixed;
+  }
+
+  select option {
+    background-color: #ffffff;
+    color: #0f172a;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-700 hover:bg-slate-600;
+  }
+}
+
+@layer components {
+  .ui-input {
+    @apply w-full rounded-xl border border-slate-700/80 bg-slate-900/80 px-4 py-2.5 text-slate-100 shadow-sm transition-all placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/20;
+  }
+
+  .ui-label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-400;
+  }
+
+  .ui-card {
+    @apply rounded-2xl border border-slate-700/70 bg-slate-900/90 shadow-ui backdrop-blur-sm;
+  }
+
+  .ui-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .ui-btn-primary {
+    @apply ui-btn bg-gradient-to-r from-brand-500 to-brand-600 text-white shadow-ui-md hover:from-brand-400 hover:to-brand-500 active:scale-[0.99];
+  }
+
+  .ui-btn-secondary {
+    @apply ui-btn border border-slate-700 bg-slate-900/70 text-slate-200 hover:bg-slate-800 hover:shadow-sm;
+  }
+
+  .ui-btn-danger {
+    @apply ui-btn bg-rose-600 text-white hover:bg-rose-700;
+  }
+
+  .ui-tab {
+    @apply flex items-center gap-2 border-b-2 border-transparent px-5 py-3.5 text-sm font-medium text-slate-400 transition-colors hover:text-slate-100;
+  }
+
+  .ui-tab-active {
+    @apply border-brand-500 text-brand-300 bg-slate-900/60;
+  }
+}
